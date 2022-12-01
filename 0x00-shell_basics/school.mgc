@@ -1,3 +1,3 @@
 #!/bin/bash
-0	string SCHOOL school data
-!:mine School
+0	string MONEY This is a money file
+!:mime text/money
