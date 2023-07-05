@@ -7,7 +7,7 @@ mkdir -p /var/www/html/
 sudo chmod -R 755 /var/www
 echo 'Hello World!' > /var/www/html/index.html
 
-SERVER_CONFIG='
+SERVER_CONFIG="
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -16,14 +16,14 @@ server {
     server_name _;
 
     location / {
-        try_files $uri $uri/ =404;
+        try_files \$uri \$uri/ =404;
     }
 
     location /redirect_me {
         return 301 http://babatunde.com;
     }
 }
-'
+"
 
 bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 
