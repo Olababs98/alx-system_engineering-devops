@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
-
 sudo apt-get update
 sudo apt-get -y install nginx
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
+echo"Hello World!" | sudo tee /var/www/html/index.html
 
 string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Olababs98 permanent;"
 
-sudo sed -i "s/service_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
 sudo service nginx restart
